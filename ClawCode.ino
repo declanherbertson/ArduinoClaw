@@ -17,19 +17,19 @@
 #define MAX_DISTANCE 200//maximum distance set to 200 cm
 
 //adjustable variables
-#define ClawOpenPos 0    //open servo position
-#define ClawClosePos 180 //close servo position
+#define ClawOpenPos 100    //open servo position
+#define ClawClosePos 150 //close servo position
 #define OpenDelay 5000  //time claw reamins closes (millis)
 
 //CloseToClose variables
-#define CloseDist 4   //dist before closing (cm)
+#define CloseDist 22   //dist before closing (cm)
 #define PingsToClose1 25 //pings before closing
 #define DelayBetweenPings1 100 //(millis)
 
 //TimeDelayMode variables
-#define InitiationDistance 8 //distance before algorithim starts
+#define InitiationDistance 25 //distance before algorithim starts
 #define HeightVariation 2 //height descrepency +- at which the count to close will continue(cm)
-#define PingsToClose2 30 //pings before closing
+#define PingsToClose2 50 //pings before closing
 #define DelayBetweenPings2 100 //(millis)
 #define ToggleSensorPingCount 50 //if sensor reads 0 100 times in a row (malfunction or unplug data cable)
 #define NoSensorDelay 5000 //time to close if sensor is removed/malfunctioning (millis)
@@ -243,10 +243,10 @@ void CloseTimeDelay(){
    
     Serial.print("Time Delay: ClawClosed");
     CloseClaw();    
-    delay(5000);
+    delay(NoSensorDelay);
     Serial.print("Time Delay: ClawOpened");
     OpenClaw();
-    delay(3000);
+    delay(NoSensorDelay);
     
   }
 }
